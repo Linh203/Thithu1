@@ -1,0 +1,44 @@
+<%- include('../inc/top.ejs') %>
+
+
+    <div class="row">
+        <div class="col-12 col-sm-3"></div>
+
+        <div class="col-12 col-sm-6 card mt-5">
+            
+            <% if(msg.length > 0) { %>
+                <p><%= msg %></p>
+            <% } %>
+
+            <h1 style="text-align: center; margin-top: 10px;">THÊM SẢN PHẨM</h1>
+
+            <form action="" method="post" enctype="multipart/form-data" >
+                <label class="form-label">Tên sản phẩm</label>
+                <input type="text" class="form-control" name="name" placeholder="Nhập tên sản phẩm">
+
+                <label class="form-label">Giá</label>
+                <input type="number" class="form-control" name="price" placeholder="Nhập giá sản phẩm">
+
+                <label class="form-label">Ảnh</label>
+                <input type="file" class="form-control" name="fileanh" accept="image/*">
+
+                <label class="form-label">Số lượng</label>
+                <input type="number" class="form-control" name="soLuong" placeholder="Nhập số lượng sản phẩm">
+
+                <label for="" class="form-label">Trạng thái</label>
+                <select name="trangThai" id="" class="form-control">
+                    <% listSp.forEach( (objsp) => { %>
+                        <option value="<%= objsp.trangThai %>"><%= objsp.trangThai %></option>
+                    <% }) %>
+                </select> <br>
+
+                <button style="margin-left: 100px; margin-top: 20px;">SAVE</button>
+            </form>
+
+        </div>
+
+        <div class="col-12 col-sm-3"></div>
+    </div>
+
+
+<%- include('../inc/bottom.ejs') %>
